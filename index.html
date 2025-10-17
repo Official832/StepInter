@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Search</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://i.imgur.com/AgBQgKi.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            width: 300px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+        }
+
+        .members {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .member {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(3px);
+            transition: transform 0.2s;
+        }
+
+        .member:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://i.imgur.com/z57H6aQ.png" alt="Logo" class="logo">
+        <input type="text" class="search-bar" placeholder="Search members...">
+    </div>
+
+    <div class="members">
+        <div class="member">Alice</div>
+        <div class="member">Bob</div>
+        <div class="member">Charlie</div>
+        <div class="member">Diana</div>
+        <div class="member">Ethan</div>
+    </div>
+</body>
+
+</html>
