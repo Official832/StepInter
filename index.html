@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Search</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StepInter Members</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: "Poppins", Arial, sans-serif;
         }
 
         body {
@@ -19,8 +19,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             color: white;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Top-left header */
+        header {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 4vw;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .container {
@@ -28,59 +41,186 @@
             backdrop-filter: blur(5px);
             padding: 20px;
             border-radius: 12px;
+            margin-top: 15vh;
+            width: 90%;
+            max-width: 600px;
         }
 
         .logo {
-            width: 150px;
-            margin-bottom: 20px;
+            width: 50%;
+            max-width: 300px;
+            margin-bottom: 25px;
         }
 
         .search-bar {
-            width: 300px;
-            max-width: 80%;
-            padding: 10px 15px;
+            width: 90%;
+            max-width: 400px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 25px;
-            font-size: 16px;
+            border-radius: 30px;
+            font-size: 1rem;
             outline: none;
             text-align: center;
         }
 
         .members {
-            margin-top: 40px;
+            margin-top: 50px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 25px;
+            padding-bottom: 50px;
+            width: 95%;
+            max-width: 1200px;
         }
 
         .member {
             background-color: rgba(255, 255, 255, 0.15);
-            padding: 10px 20px;
-            border-radius: 8px;
-            backdrop-filter: blur(3px);
+            padding: 15px;
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+            text-align: center;
+            width: 160px;
             transition: transform 0.2s;
+            flex: 1 1 140px;
         }
 
         .member:hover {
             transform: scale(1.05);
         }
+
+        .profile-pic {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 10px;
+        }
+
+        .member-name {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .member-role {
+            font-size: 0.85rem;
+            color: #ddd;
+            margin-bottom: 8px;
+        }
+
+        .facebook-link {
+            color: #1877F2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .facebook-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            header {
+                font-size: 6vw;
+            }
+
+            .container {
+                margin-top: 10vh;
+            }
+
+            .logo {
+                width: 60%;
+            }
+
+            .search-bar {
+                width: 95%;
+            }
+
+            .member {
+                width: 45%;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 8vw;
+            }
+
+            .logo {
+                width: 70%;
+            }
+
+            .member {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header>StepInter</header>
+
     <div class="container">
-        <img src="https://i.imgur.com/z57H6aQ.png" alt="Logo" class="logo">
-        <input type="text" class="search-bar" placeholder="Search members...">
+        <img src="https://i.imgur.com/z57H6aQ.png" alt="Logo" class="logo" />
+        <input type="text" class="search-bar" placeholder="Search members..." />
     </div>
 
-    <div class="members">
-        <div class="member">Alice</div>
-        <div class="member">Bob</div>
-        <div class="member">Charlie</div>
-        <div class="member">Diana</div>
-        <div class="member">Ethan</div>
-    </div>
+    <div class="members" id="memberList"></div>
+
+    <script>
+        const members = [
+            { id: 1, name: 'Zino Sabudbob', role: 'Founder', facebook: 'https://www.facebook.com/profile.php?id=61573979874520', profilePicture: 'https://i.imgur.com/o4M0Pvh.png' },
+            { id: 8, name: 'Skyblue Triples', role: 'Leader', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
+            { id: 6, name: 'Faye StepInter', role: 'Leader', facebook: 'https://www.facebook.com/Eelena.Midnight.1', profilePicture: 'https://i.imgur.com/7qZk21b.png' },
+            { id: 2, name: 'Nene StepInter', role: 'Member', facebook: 'https://www.facebook.com/nenejacrazy', profilePicture: 'https://i.imgur.com/xM0kx6o.png' },
+            { id: 3, name: 'Atlas StepInter', role: 'Member', facebook: 'X', profilePicture: 'https://i.imgur.com/oUjxeea.png' },
+            { id: 4, name: 'March Colinfirth', role: 'Member', facebook: 'https://www.facebook.com/march.colinfirth', profilePicture: 'https://i.imgur.com/hR1TeUq.png' },
+            { id: 5, name: 'Blackdora StepInter', role: 'Member', facebook: 'X', profilePicture: 'https://i.imgur.com/wM2rtaH.png' },
+            { id: 7, name: 'Owen StepInter', role: 'Member', facebook: 'X', profilePicture: 'https://i.imgur.com/Bb5qHFV.jpeg' },
+            { id: 9, name: 'Bunny Celestrial', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61563982465328', profilePicture: 'https://i.imgur.com/Cxn51R3.jpeg' },
+            { id: 10, name: 'Payu Raengtamlom', role: 'Member', facebook: 'https://www.facebook.com/share/19DkBQnYbx/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/GgHxciC.png' },
+            { id: 11, name: 'Aina Diffstyle', role: 'Member', facebook: 'https://www.facebook.com/share/1GdHrfP5Zx/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/68BhK0W.png' },
+            { id: 12, name: 'Lucas Beyondgod', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=100091115444827', profilePicture: 'https://i.imgur.com/HKgA5y6.png' },
+            { id: 13, name: 'Mewie Zera', role: 'Member', facebook: 'https://www.facebook.com/share/1FWe9EKFRg/', profilePicture: 'https://i.imgur.com/ZJKT7Pe.png' },
+            { id: 14, name: 'Babyz Shehot', role: 'Member', facebook: 'https://www.facebook.com/share/1BH3JvgeXu/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/l6uKAEs.png' },
+            { id: 15, name: 'Conner Winterfell Smit', role: 'Member', facebook: 'https://www.facebook.com/share/1B8s5Ad8pL/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/N21tbG5.png' },
+            { id: 16, name: 'Piano bubbly', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61552154380401', profilePicture: 'https://i.imgur.com/l3rHg1R.png' },
+            { id: 17, name: 'Cotton Bubbly', role: 'Member', facebook: 'https://www.facebook.com/share/1AuNodGUcu/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/D73xGRk.png' },
+            { id: 18, name: 'Khaopoon Celestrial', role: 'Member', facebook: 'https://www.facebook.com/share/1CN3WenXHF/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/KxvqU13.jpeg' }
+        ];
+
+        const memberList = document.getElementById("memberList");
+        const searchBar = document.querySelector(".search-bar");
+
+        function renderMembers(filteredMembers) {
+            memberList.innerHTML = "";
+            filteredMembers.forEach(member => {
+                const div = document.createElement("div");
+                div.classList.add("member");
+
+                div.innerHTML = `
+          <img src="${member.profilePicture}" alt="${member.name}" class="profile-pic">
+          <div class="member-name">${member.name}</div>
+          <div class="member-role">${member.role}</div>
+          ${member.facebook !== 'X' ? `<a href="${member.facebook}" target="_blank" class="facebook-link">Facebook</a>` : `<span style="color:#aaa;">No link</span>`}
+        `;
+                memberList.appendChild(div);
+            });
+        }
+
+        renderMembers(members);
+
+        searchBar.addEventListener("input", e => {
+            const searchText = e.target.value.toLowerCase();
+            const filtered = members.filter(m =>
+                m.name.toLowerCase().includes(searchText) ||
+                m.role.toLowerCase().includes(searchText)
+            );
+            renderMembers(filtered);
+        });
+    </script>
 </body>
 
 </html>
