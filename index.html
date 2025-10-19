@@ -41,11 +41,8 @@
             left: 0;
             width: 100%;
             height: 60px;
-            /* adjust height as needed */
             background-color: rgba(0, 0, 0, 0.5);
-            /* black with transparency */
             z-index: 10;
-            /* stays above background */
         }
 
         .container {
@@ -85,7 +82,6 @@
             padding-bottom: 50px;
         }
 
-        /* Rectangle member card */
         .member {
             background-color: rgba(255, 255, 255, 0.15);
             padding: 15px 20px;
@@ -141,6 +137,39 @@
 
         .facebook-link:hover {
             text-decoration: underline;
+        }
+
+        /* Fixed music control box */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .music-player button {
+            background: #444;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .music-player button:hover {
+            background: #666;
+        }
+
+        iframe {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -205,7 +234,47 @@
 
     <div class="members" id="memberList"></div>
 
+    <!-- Hidden YouTube player -->
+    <iframe id="ytPlayer" src="https://www.youtube.com/embed/PC-eXgmHkFA?enablejsapi=1"
+        allow="autoplay; encrypted-media" frameborder="0"></iframe>
+
+    <!-- Fixed music player controls -->
+    <div class="music-player">
+        <button id="playBtn">Play</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="muteBtn">Mute</button>
+    </div>
+
     <script>
+        // YouTube API setup
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(tag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('ytPlayer', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady() {
+            document.getElementById('playBtn').addEventListener('click', () => player.playVideo());
+            document.getElementById('pauseBtn').addEventListener('click', () => player.pauseVideo());
+            document.getElementById('muteBtn').addEventListener('click', function () {
+                if (player.isMuted()) {
+                    player.unMute();
+                    this.textContent = 'Mute';
+                } else {
+                    player.mute();
+                    this.textContent = 'Unmute';
+                }
+            });
+        }
+
+        // Your members list & search logic
         const members = [
             { id: 1, name: 'Zino Sabudbob', role: 'Founder', facebook: 'https://www.facebook.com/profile.php?id=61573979874520', profilePicture: 'https://i.imgur.com/o4M0Pvh.png' },
             { id: 8, name: 'Skyblue Triples', role: 'Leader', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
@@ -241,10 +310,11 @@
           <div class="member-info">
             <div class="member-name">${member.name}</div>
             <div class="member-role">${member.role}</div>
-            ${member.facebook !== 'X' ? `<a href="${member.facebook}" target="_blank" class="facebook-link">${member.facebook}</a>` : `<span style="color:#aaa;"> </span>`}
+            ${member.facebook !== 'X'
+                        ? `<a href="${member.facebook}" target="_blank" class="facebook-link">${member.facebook}</a>`
+                        : `<span style="color:#aaa;"> </span>`}
           </div>
         `;
-
                 memberList.appendChild(div);
             });
         }
