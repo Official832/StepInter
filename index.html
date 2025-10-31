@@ -287,6 +287,7 @@
             { id: 8, name: 'Skyblue Triples', role: 'Leader', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
             { id: 22, name: 'Melga Winterfell', role: 'Leader', facebook: 'https://www.facebook.com/share/1EKD3KBk4C/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/uOc217m.jpeg' },
             { id: 6, name: 'Faye StepInter', role: 'Leader', facebook: 'https://www.facebook.com/Eelena.Midnight.1', profilePicture: 'https://i.imgur.com/MbWPGT0.jpeg' },
+            { id: 23, name: 'Andrew Winterfell', role: 'Leader/Support', facebook: 'https://www.facebook.com/Andrew.WTFZiller', profilePicture: 'YOUR_IMGUR_LINK_HERE' },
             { id: 2, name: 'Nene StepInter', role: 'Member', facebook: 'https://www.facebook.com/nenejacrazy', profilePicture: 'https://i.imgur.com/xM0kx6o.png' },
             { id: 3, name: 'Atlas StepInter', role: 'Member', facebook: 'X', profilePicture: 'https://i.imgur.com/oUjxeea.png' },
             { id: 4, name: 'March Colinfirth', role: 'Member', facebook: 'https://www.facebook.com/march.colinfirth', profilePicture: 'https://i.imgur.com/hR1TeUq.png' },
@@ -305,6 +306,10 @@
             { id: 19, name: 'Nono Stepinter', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61582834562946', profilePicture: 'https://i.imgur.com/Aj48mAp.jpeg' },
             { id: 20, name: 'Willy Wonka', role: 'Member', facebook: 'https://www.facebook.com/WillyX2', profilePicture: 'https://i.imgur.com/jROHdhk.png' },
             { id: 21, name: 'Taemiz Xgodry', role: 'Member', facebook: 'https://www.facebook.com/sen.kaemi.2025', profilePicture: 'https://i.imgur.com/W7ezMa6.jpg' },
+            { id: 24, name: 'Armin Stepdekbad', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61555313676708', profilePicture: 'YOUR_IMGUR_LINK_HERE' },
+            { id: 25, name: 'Snow Sabudbob', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61575196988156', profilePicture: 'YOUR_IMGUR_LINK_HERE' },
+            { id: 26, name: 'Simon Simon Simon', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61564171884806', profilePicture: 'YOUR_IMGUR_LINK_HERE' },
+            { id: 27, name: 'Ape Winterfell Zera', role: 'Member', facebook: 'https://www.facebook.com/Ape.Zera', profilePicture: 'YOUR_IMGUR_LINK_HERE' },
         ];
 
         const memberList = document.getElementById("memberList");
@@ -312,23 +317,53 @@
 
         function renderMembers(filteredMembers) {
             memberList.innerHTML = "";
-            filteredMembers.forEach(member => {
-                const div = document.createElement("div");
-                div.classList.add("member");
 
-                div.innerHTML = `
-          <img src="${member.profilePicture}" alt="${member.name}" class="profile-pic">
-          <div class="member-info">
-            <div class="member-name">${member.name}</div>
-            <div class="member-role">${member.role}</div>
-            ${member.facebook !== 'X'
-                        ? `<a href="${member.facebook}" target="_blank" class="facebook-link">${member.facebook}</a>`
-                        : `<span style="color:#aaa;"> </span>`}
-          </div>
-        `;
-                memberList.appendChild(div);
+            // Group members by role
+            const roles = {};
+            filteredMembers.forEach(member => {
+                if (!roles[member.role]) roles[member.role] = [];
+                roles[member.role].push(member);
             });
+
+            // For each role, create a heading and its members
+            for (const [role, membersByRole] of Object.entries(roles)) {
+                const roleTitle = document.createElement("h2");
+                roleTitle.textContent = role.toUpperCase();
+                roleTitle.style.margin = "40px 0 20px";
+                roleTitle.style.textAlign = "center";
+                roleTitle.style.borderBottom = "2px solid white";
+                roleTitle.style.paddingBottom = "5px";
+                roleTitle.style.letterSpacing = "1px";
+                memberList.appendChild(roleTitle);
+
+                const roleGroup = document.createElement("div");
+                roleGroup.classList.add("members-group");
+                roleGroup.style.display = "flex";
+                roleGroup.style.flexWrap = "wrap";
+                roleGroup.style.justifyContent = "center";
+                roleGroup.style.gap = "20px";
+
+                membersByRole.forEach(member => {
+                    const div = document.createElement("div");
+                    div.classList.add("member");
+
+                    div.innerHTML = `
+                <img src="${member.profilePicture}" alt="${member.name}" class="profile-pic">
+                <div class="member-info">
+                    <div class="member-name">${member.name}</div>
+                    <div class="member-role">${member.role}</div>
+                    ${member.facebook !== 'X'
+                            ? `<a href="${member.facebook}" target="_blank" class="facebook-link">${member.facebook}</a>`
+                            : `<span style="color:#aaa;"> </span>`}
+                </div>
+            `;
+                    roleGroup.appendChild(div);
+                });
+
+                memberList.appendChild(roleGroup);
+            }
         }
+
 
         renderMembers(members);
 
