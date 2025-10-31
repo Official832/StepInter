@@ -284,9 +284,9 @@
         // Your members list & search logic
         const members = [
             { id: 1, name: 'Zino Sabudbob', role: 'Founder', facebook: 'https://www.facebook.com/profile.php?id=61573979874520', profilePicture: 'https://i.imgur.com/o4M0Pvh.png' },
-            { id: 8, name: 'Skyblue Triples', role: 'Leader', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
-            { id: 22, name: 'Melga Winterfell', role: 'Leader', facebook: 'https://www.facebook.com/share/1EKD3KBk4C/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/uOc217m.jpeg' },
-            { id: 6, name: 'Faye StepInter', role: 'Leader', facebook: 'https://www.facebook.com/Eelena.Midnight.1', profilePicture: 'https://i.imgur.com/MbWPGT0.jpeg' },
+            { id: 8, name: 'Skyblue Triples', role: 'Leader/Support', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
+            { id: 22, name: 'Melga Winterfell', role: 'Leader/Support', facebook: 'https://www.facebook.com/share/1EKD3KBk4C/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/uOc217m.jpeg' },
+            { id: 6, name: 'Faye StepInter', role: 'Leader/Support', facebook: 'https://www.facebook.com/Eelena.Midnight.1', profilePicture: 'https://i.imgur.com/MbWPGT0.jpeg' },
             { id: 23, name: 'Andrew Winterfell', role: 'Leader/Support', facebook: 'https://www.facebook.com/Andrew.WTFZiller', profilePicture: 'YOUR_IMGUR_LINK_HERE' },
             { id: 2, name: 'Nene StepInter', role: 'Member', facebook: 'https://www.facebook.com/nenejacrazy', profilePicture: 'https://i.imgur.com/xM0kx6o.png' },
             { id: 3, name: 'Atlas StepInter', role: 'Member', facebook: 'X', profilePicture: 'https://i.imgur.com/oUjxeea.png' },
@@ -318,30 +318,42 @@
         function renderMembers(filteredMembers) {
             memberList.innerHTML = "";
 
-            // Group members by role
+            // Group members by exact role text (no merging)
             const roles = {};
             filteredMembers.forEach(member => {
                 if (!roles[member.role]) roles[member.role] = [];
                 roles[member.role].push(member);
             });
 
-            // For each role, create a heading and its members
-            for (const [role, membersByRole] of Object.entries(roles)) {
-                const roleTitle = document.createElement("h2");
-                roleTitle.textContent = role.toUpperCase();
-                roleTitle.style.margin = "40px 0 20px";
-                roleTitle.style.textAlign = "center";
-                roleTitle.style.borderBottom = "2px solid white";
-                roleTitle.style.paddingBottom = "5px";
-                roleTitle.style.letterSpacing = "1px";
-                memberList.appendChild(roleTitle);
+            // Loop through roles in order of appearance
+            Object.entries(roles).forEach(([role, membersByRole]) => {
+                // Create the role heading ABOVE the profiles
+                const roleSection = document.createElement("div");
+                roleSection.style.width = "100%";
+                roleSection.style.textAlign = "center";
+                roleSection.style.margin = "50px 0 20px";
 
+                roleSection.innerHTML = `
+            <h2 style="
+                font-size: 1.8rem;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                border-bottom: 2px solid white;
+                display: inline-block;
+                padding-bottom: 6px;
+            ">${role}</h2>
+        `;
+                memberList.appendChild(roleSection);
+
+                // Create a container for the members of this role
                 const roleGroup = document.createElement("div");
                 roleGroup.classList.add("members-group");
                 roleGroup.style.display = "flex";
                 roleGroup.style.flexWrap = "wrap";
                 roleGroup.style.justifyContent = "center";
                 roleGroup.style.gap = "20px";
+                roleGroup.style.marginBottom = "30px";
 
                 membersByRole.forEach(member => {
                     const div = document.createElement("div");
@@ -360,9 +372,11 @@
                     roleGroup.appendChild(div);
                 });
 
+                // Append all members below the role title
                 memberList.appendChild(roleGroup);
-            }
+            });
         }
+
 
 
         renderMembers(members);
