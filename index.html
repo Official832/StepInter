@@ -1,5 +1,5 @@
 <script>
-// YouTube API setup
+// โหลด YouTube API
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 document.head.appendChild(tag);
@@ -22,9 +22,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady() {
   try {
     player.playVideo();
-  } catch (err) {
-    // ignore
-  }
+  } catch (err) {}
 
   document.getElementById('playBtn').addEventListener('click', () => player.playVideo());
   document.getElementById('pauseBtn').addEventListener('click', () => player.pauseVideo());
@@ -39,7 +37,7 @@ function onPlayerReady() {
   });
 }
 
-// ====== MEMBER LIST (แก้แล้ว) ======
+// ====== รายชื่อสมาชิก (แก้แล้ว + เก็บชื่อใหม่ไว้) ======
 const members = [
   { id: 1,  name: 'Zino Sabudbob',          role: 'Founder',        facebook: 'https://www.facebook.com/profile.php?id=61573979874520',  profilePicture: 'https://i.imgur.com/o4M0Pvh.png' },
   { id: 8,  name: 'Skyblue Triples',        role: 'Leader/Support', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
@@ -51,105 +49,4 @@ const members = [
   { id: 3,  name: 'Atlas StepInter',        role: 'Member',         facebook: 'X',                                                          profilePicture: 'https://i.imgur.com/oUjxeea.png' },
   { id: 4,  name: 'March Colinfirth',       role: 'Member',         facebook: 'https://www.facebook.com/march.colinfirth',                  profilePicture: 'https://i.imgur.com/hR1TeUq.png' },
   { id: 5,  name: 'Blackdora StepInter',    role: 'Member',         facebook: 'X',                                                          profilePicture: 'https://i.imgur.com/wM2rtaH.png' },
-  { id: 7,  name: 'Owen StepInter',         role: 'Member',         facebook: 'X',                                                          profilePicture: 'https://i.imgur.com/Bb5qHFV.jpeg' },
-  { id: 9,  name: 'Bunny Celestrial',       role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61563982465328',    profilePicture: 'https://i.imgur.com/Cxn51R3.jpeg' },
-  { id: 10, name: 'Payu Raengtamlom',       role: 'Member',         facebook: 'https://www.facebook.com/share/19DkBQnYbx/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/GgHxciC.png' },
-  { id: 11, name: 'Aina Diffstyle',         role: 'Member',         facebook: 'https://www.facebook.com/share/1GdHrfP5Zx/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/68BhK0W.png' },
-  { id: 12, name: 'น้องแป๋ง ทะลวงเมฆา',   role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=100091115444827',   profilePicture: 'https://i.imgur.com/HKgA5y6.png' },
-  { id: 13, name: 'Mewie Zera',             role: 'Member',         facebook: 'https://www.facebook.com/share/1FWe9EKFRg/',                 profilePicture: 'https://i.imgur.com/ZJKT7Pe.png' },
-  { id: 14, name: 'Babyz Shehot',           role: 'Member',         facebook: 'https://www.facebook.com/share/1BH3JvgeXu/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/l6uKAEs.png' },
-  { id: 15, name: 'Conner Winterfell Smit', role: 'Member',         facebook: 'https://www.facebook.com/share/1B8s5Ad8pL/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/N21tbG5.png' },
-  { id: 16, name: 'Piano bubbly',           role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61552154380401',    profilePicture: 'https://i.imgur.com/l3rHg1R.png' },
-  { id: 17, name: 'Cotton Bubbly',          role: 'Member',         facebook: 'https://www.facebook.com/share/1AuNodGUcu/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/D73xGRk.png' },
-  { id: 18, name: 'Khaopoon Celestrial',    role: 'Member',         facebook: 'https://www.facebook.com/share/1CN3WenXHF/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/KxvqU13.jpeg' },
-  { id: 19, name: 'Nono Stepinter',         role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61582834562946',    profilePicture: 'https://i.imgur.com/Aj48mAp.jpeg' },
-  { id: 20, name: 'Willy Wonka',            role: 'Member',         facebook: 'https://www.facebook.com/WillyX2',                          profilePicture: 'https://i.imgur.com/jROHdhk.png' },
-  { id: 21, name: 'Taemiz Xgodry',          role: 'Member',         facebook: 'https://www.facebook.com/sen.kaemi.2025',                   profilePicture: 'https://i.imgur.com/W7ezMa6.jpg' },
-
-  { id: 24, name: 'Armin Stepdekbad',       role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61555313676708',   profilePicture: 'https://i.imgur.com/kQDgn1R.png' },
-  { id: 25, name: 'Snow Sabudbob',          role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61575196988156',   profilePicture: 'https://i.imgur.com/kQDgn1R.png' },
-  { id: 26, name: 'Simon Simon Simon',      role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61564171884806',   profilePicture: 'https://i.imgur.com/kQDgn1R.png' },
-  { id: 27, name: 'Ape Winterfell Zera',    role: 'Member',         facebook: 'https://www.facebook.com/Ape.Zera',                         profilePicture: 'https://i.imgur.com/kQDgn1R.png' },
-
-  // ชื่อใหม่ (จากโค้ดอันแรก) – ไม่แก้ตามที่ขอ
-  { id: 28, name: 'John Realmaflow',        role: 'Member',         facebook: 'https://www.facebook.com/john.realmaflow',                 profilePicture: 'https://i.imgur.com/kQDgn1R.png' }
-];
-
-const memberList = document.getElementById("memberList");
-const searchBar = document.querySelector(".search-bar");
-
-function renderMembers(filteredMembers) {
-  memberList.innerHTML = "";
-
-  // Group members by exact role text
-  const roles = {};
-  filteredMembers.forEach(member => {
-    if (!roles[member.role]) roles[member.role] = [];
-    roles[member.role].push(member);
-  });
-
-  // Loop through roles in order of appearance
-  Object.entries(roles).forEach(([role, membersByRole]) => {
-    // Role heading
-    const roleSection = document.createElement("div");
-    roleSection.style.width = "100%";
-    roleSection.style.textAlign = "center";
-    roleSection.style.margin = "50px 0 20px";
-    roleSection.innerHTML = `<h2 class="role-heading">${role}</h2>`;
-    memberList.appendChild(roleSection);
-
-    // Container for members under this role
-    const roleGroup = document.createElement("div");
-    roleGroup.classList.add("members-group");
-    roleGroup.style.display = "flex";
-    roleGroup.style.flexWrap = "wrap";
-    roleGroup.style.justifyContent = "center";
-    roleGroup.style.gap = "20px";
-    roleGroup.style.marginBottom = "30px";
-
-    membersByRole.forEach((member, index) => {
-      const div = document.createElement("div");
-      div.classList.add("member");
-      // stagger animation
-      div.style.animationDelay = `${index * 0.08}s`;
-
-      div.innerHTML = `
-        <img src="${member.profilePicture}" alt="${member.name}" class="profile-pic">
-        <div class="member-info">
-          <div class="member-name">${member.name}</div>
-          <div class="member-role">${member.role}</div>
-          ${
-            member.facebook !== 'X'
-              ? `
-                <a href="${member.facebook}" target="_blank" class="facebook-link">
-                  <span class="facebook-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.86 7.94 9.77V14.89H7.9v-2.89h2.05V9.62c0-2.03 1.2-3.15 3.03-3.15.88 0 1.8.16 1.8.16v1.98h-1.01c-0.99 0-1.3.62-1.3 1.26v1.5h2.22l-0.35 2.89h-1.87V21.8C18.56 20.86 22 16.84 22 12z"/>
-                    </svg>
-                  </span>
-                </a>
-              `
-              : `<span style="color:#aaa;"></span>`
-          }
-        </div>
-      `;
-      roleGroup.appendChild(div);
-    });
-
-    memberList.appendChild(roleGroup);
-  });
-}
-
-// แสดงสมาชิกทั้งหมดตอนโหลด
-renderMembers(members);
-
-// search
-searchBar.addEventListener("input", e => {
-  const searchText = e.target.value.toLowerCase();
-  const filtered = members.filter(m =>
-    m.name.toLowerCase().includes(searchText) ||
-    m.role.toLowerCase().includes(searchText)
-  );
-  renderMembers(filtered);
-});
-</script>
+  { id: 7,  name: 'Owen StepInter',         role: 'Member',         facebook: '
