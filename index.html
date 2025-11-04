@@ -285,25 +285,39 @@
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('ytPlayer', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
+                playerVars: {
+                    autoplay: 1,     // request autoplay
+                    controls: 1,
+                    modestbranding: 1,
+                    rel: 0
+                },
+                 events: {
+                     'onReady': onPlayerReady
+                 }
+             });
         }
 
         function onPlayerReady() {
-            document.getElementById('playBtn').addEventListener('click', () => player.playVideo());
-            document.getElementById('pauseBtn').addEventListener('click', () => player.pauseVideo());
-            document.getElementById('muteBtn').addEventListener('click', function () {
-                if (player.isMuted()) {
-                    player.unMute();
-                    this.textContent = 'Mute';
-                } else {
-                    player.mute();
-                    this.textContent = 'Unmute';
-                }
-            });
-        }
+            // Try to autoplay on ready. Note: browsers may block audible autoplay;
+            // YouTube API will obey autoplay request but some browsers require muted playback.
+            // If autoplay is blocked, the user can still use the play button.
+            try {
+                player.playVideo();
+            } catch (err) {
+                // ignore
+            }
+             document.getElementById('playBtn').addEventListener('click', () => player.playVideo());
+             document.getElementById('pauseBtn').addEventListener('click', () => player.pauseVideo());
+             document.getElementById('muteBtn').addEventListener('click', function () {
+                 if (player.isMuted()) {
+                     player.unMute();
+                     this.textContent = 'Mute';
+                 } else {
+                     player.mute();
+                     this.textContent = 'Unmute';
+                 }
+             });
+         }
 
         // Your members list & search logic
         const members = [
