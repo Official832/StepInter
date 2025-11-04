@@ -25,15 +25,45 @@
             overflow-x: hidden;
         }
 
+        /* COOL "Gangster modern" header */
         header {
             position: absolute;
             top: 47px;
             left: 30px;
             font-size: 4vw;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-family: "Poppins", "Oswald", Arial, sans-serif;
+            /* gradient fill + clip for crisp modern look */
+            color: transparent;
+            background: linear-gradient(90deg, #ffffff 0%, #00e0ff 45%, #0077ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            /* heavy layered shadow for depth */
+            text-shadow:
+                0 6px 18px rgba(0,0,0,0.65),
+                0 2px 0 rgba(255,255,255,0.04);
+            transform: skewX(-3deg);
+            user-select: none;
+            mix-blend-mode: normal;
+        }
+
+        header::after {
+            content: "";
+            display: block;
+            width: 60%;
+            height: 4px;
+            margin-top: 8px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(0,224,255,0.25));
+            border-radius: 2px;
+            transform: skewX(-3deg);
+            opacity: 0.9;
+        }
+
+        header:hover {
+            transform: skewX(0deg) scale(1.02);
+            transition: transform 220ms ease, text-shadow 220ms ease;
         }
 
         .top-nav {
@@ -263,7 +293,7 @@
 
 <body>
     <div class="top-nav"></div>
-    <header>StepInter</header>
+    <header>STEPINTER</header>
 
     <div class="container">
         <img src="https://i.imgur.com/kyOH3WH.png" alt="Logo" class="logo" />
