@@ -48,6 +48,18 @@
       transform: skewX(-3deg);
       user-select: none;
       transition: transform 220ms ease, text-shadow 220ms ease;
+      /* allow clicking the logo text */
+      cursor: pointer;
+    }
+
+    header a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    header a:hover {
+      text-decoration: none;
     }
 
     header::after {
@@ -294,7 +306,7 @@
 </head>
 <body>
   <div class="top-nav"></div>
-  <header>STEPINTER</header>
+  <header><a href="index.html">Test</a></header>
 
   <div class="container">
     <img src="https://i.imgur.com/kyOH3WH.png" alt="Logo" class="logo" />
