@@ -316,6 +316,7 @@
     <button id="playBtn">Play</button>
     <button id="pauseBtn">Pause</button>
     <button id="muteBtn">Mute</button>
+    <input id="volumeSlider" type="range" min="0" max="100" value="100" aria-label="Volume" />
   </div>
 
   <script>
@@ -358,6 +359,26 @@
           this.textContent = 'Unmute';
         }
       });
+
+      const volumeSlider = document.getElementById('volumeSlider');
+      if (volumeSlider) {
+        // initialize volume from the slider
+        player.setVolume(Number(volumeSlider.value));
+
+        volumeSlider.addEventListener('input', (e) => {
+          const vol = Number(e.target.value);
+          player.setVolume(vol);
+
+          // If volume is zero, treat it like mute for UX
+          if (vol === 0 && !player.isMuted()) {
+            player.mute();
+            document.getElementById('muteBtn').textContent = 'Unmute';
+          } else if (vol > 0 && player.isMuted()) {
+            player.unMute();
+            document.getElementById('muteBtn').textContent = 'Mute';
+          }
+        });
+      }
     }
 
     // Your members list & search logic
