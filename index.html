@@ -454,7 +454,7 @@
     function renderMembers(filteredMembers) {
       memberList.innerHTML = "";
 
-      // Group members by exact role text (no merging)
+      // Group members by exact role text (no  merging)
       const roles = {};
       filteredMembers.forEach(member => {
         if (!roles[member.role]) roles[member.role] = [];
