@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="Style.css">
   <!-- add fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&family=Poppins:wght@300;400;700;900&display=swap"
+    rel="stylesheet">
   <!-- changed title to uppercase -->
   <title>STEPINTER Members</title>
   <style>
@@ -41,10 +44,10 @@
       background: linear-gradient(90deg, #fff 0%, #00e0ff 45%, #0077ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
-      -webkit-text-stroke: 0.8px rgba(0,0,0,0.35);
-      text-shadow: 0 6px 18px rgba(0,0,0,0.7),
-                   0 2px 0 rgba(255,255,255,0.03),
-                   0 0 20px rgba(0,224,255,0.06);
+      -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.35);
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.7),
+        0 2px 0 rgba(255, 255, 255, 0.03),
+        0 0 20px rgba(0, 224, 255, 0.06);
       transform: skewX(-3deg);
       user-select: none;
       transition: transform 220ms ease, text-shadow 220ms ease;
@@ -68,7 +71,7 @@
       width: 60%;
       height: 4px;
       margin-top: 8px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(0,224,255,0.35));
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(0, 224, 255, 0.35));
       border-radius: 2px;
       transform: skewX(-3deg);
       opacity: 0.95;
@@ -76,9 +79,9 @@
 
     header:hover {
       transform: skewX(0deg) scale(1.03);
-      text-shadow: 0 10px 30px rgba(0,0,0,0.75),
-                   0 3px 0 rgba(255,255,255,0.06),
-                   0 0 28px rgba(0,224,255,0.12);
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.75),
+        0 3px 0 rgba(255, 255, 255, 0.06),
+        0 0 28px rgba(0, 224, 255, 0.12);
     }
 
     .top-nav {
@@ -110,15 +113,17 @@
     @keyframes breathe {
       0% {
         transform: scale(1);
-        filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
       }
+
       50% {
         transform: scale(1.03);
-        filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
       }
+
       100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
       }
     }
 
@@ -131,19 +136,24 @@
       font-size: 1rem;
       outline: none;
       text-align: center;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       color: #fff;
       transition: box-shadow 0.3s ease, background 0.3s ease;
     }
 
     .search-bar:focus {
-      background: rgba(0,0,0,0.7);
+      background: rgba(0, 0, 0, 0.7);
       animation: glowPulse 1.2s ease-in-out infinite alternate;
     }
 
     @keyframes glowPulse {
-      from { box-shadow: 0 0 5px #1877F2; }
-      to   { box-shadow: 0 0 18px #00e0ff; }
+      from {
+        box-shadow: 0 0 5px #1877F2;
+      }
+
+      to {
+        box-shadow: 0 0 18px #00e0ff;
+      }
     }
 
     .members {
@@ -179,6 +189,7 @@
         opacity: 0;
         transform: translateY(15px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -202,7 +213,7 @@
 
     .member:hover .profile-pic {
       transform: translateY(-3px) rotate(-3deg);
-      box-shadow: 0 0 10px rgba(255,255,255,0.5);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
     /* Role heading slides in from left */
@@ -224,6 +235,7 @@
         opacity: 0;
         transform: translateX(-20px);
       }
+
       to {
         opacity: 1;
         transform: translateX(0);
@@ -266,15 +278,19 @@
       header {
         font-size: 6vw;
       }
+
       .container {
         margin-top: 10vh;
       }
+
       .logo {
         width: 60%;
       }
+
       .search-bar {
         width: 95%;
       }
+
       .member {
         width: 90%;
         flex-direction: row;
@@ -286,18 +302,22 @@
       header {
         font-size: 8vw;
       }
+
       .logo {
         width: 70%;
       }
+
       .member {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
+
       .profile-pic {
         margin-right: 0;
         margin-bottom: 10px;
       }
+
       .member-info {
         align-items: center;
       }
@@ -305,11 +325,13 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <div class="top-nav"></div>
-  <header><a href="Home.html">HOME</a></header> 
+  <header><a href="Home.html">HOME</a></header>
   <!-- //Homebutton// -->
 
 
@@ -321,10 +343,7 @@
   <div class="members" id="memberList"></div>
 
   <!-- Hidden YouTube player -->
-  <iframe
-    id="ytPlayer"
-    src="https://www.youtube.com/embed/NObExZCktuM?enablejsapi=1"
-    allow="autoplay; encrypted-media"
+  <iframe id="ytPlayer" src="https://www.youtube.com/embed/NObExZCktuM?enablejsapi=1" allow="autoplay; encrypted-media"
     frameborder="0">
   </iframe>
 
@@ -401,31 +420,32 @@
 
     // Your members list & search logic
     const members = [
-      { id: 1,  name: 'Zino Sabudbob',          role: 'Founder',        facebook: 'https://www.facebook.com/profile.php?id=61573979874520',  profilePicture: 'https://i.imgur.com/0VIEeme.png' },
-      { id: 8,  name: 'Skyblue Triples',        role: 'Leader/Support', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
-      { id: 22, name: 'Melga Winterfell',       role: 'Leader/Support', facebook: 'https://www.facebook.com/share/1EKD3KBk4C/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/uOc217m.jpeg' },
-      { id: 6,  name: 'Xenia Seraphy',         role: 'Member', facebook: 'https://www.facebook.com/Eelena.Midnight.1',                 profilePicture: 'https://i.imgur.com/MbWPGT0.jpeg' },
-      { id: 23, name: 'Andrew Winterfell',      role: 'Leader/Support', facebook: 'https://www.facebook.com/Andrew.WTFZiller',                  profilePicture: 'https://i.imgur.com/YI9i32J.jpeg' },
+      { id: 1, name: 'Zino Sabudbob', role: 'Founder', facebook: 'https://www.facebook.com/profile.php?id=61573979874520', profilePicture: 'https://i.imgur.com/0VIEeme.png' },
+      { id: 8, name: 'Skyblue Triples', role: 'Leader/Support', facebook: 'https://www.facebook.com/share/16L5eEajBz/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/vqaaLKs.jpeg' },
+      { id: 22, name: 'Melga Winterfell', role: 'Leader/Support', facebook: 'https://www.facebook.com/share/1EKD3KBk4C/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/uOc217m.jpeg' },
+      { id: 6, name: 'Xenia Seraphy', role: 'Member', facebook: 'https://www.facebook.com/Eelena.Midnight.1', profilePicture: 'https://i.imgur.com/MbWPGT0.jpeg' },
+      { id: 23, name: 'Andrew Winterfell', role: 'Leader/Support', facebook: 'https://www.facebook.com/Andrew.WTFZiller', profilePicture: 'https://i.imgur.com/YI9i32J.jpeg' },
 
-      { id: 2,  name: 'bAddiexゞ',         role: 'Member',         facebook: 'https://www.facebook.com/nenejacrazy',                       profilePicture: 'https://i.imgur.com/xM0kx6o.png' },
-      { id: 3,  name: 'Atlas StepInter',        role: 'Member',         facebook: 'X',                                                          profilePicture: 'https://i.imgur.com/oUjxeea.png' },
-      { id: 4,  name: 'March Colinfirth',       role: 'Member',         facebook: 'https://www.facebook.com/march.colinfirth',                  profilePicture: 'https://i.imgur.com/hR1TeUq.png' },
-      { id: 5,  name: 'Blackdora StepInter',    role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61577381127203',     profilePicture: 'https://i.imgur.com/wM2rtaH.png' },
-      { id: 11, name: 'Nönğaina ィ ۦ  ',         role: 'Member',         facebook: 'https://www.facebook.com/share/1GdHrfP5Zx/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/68BhK0W.png' },
-      { id: 13, name: 'Mewie Zera',             role: 'Member',         facebook: 'https://www.facebook.com/share/1FWe9EKFRg/',                 profilePicture: 'https://i.imgur.com/ZJKT7Pe.png' },
-      { id: 14, name: 'Babyz Maiyakjebjaiteerakter',           role: 'Member',         facebook: 'https://www.facebook.com/share/1BH3JvgeXu/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/l6uKAEs.png' },
-      { id: 16, name: 'Pee Pee Brownlor',           role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61578694900512',    profilePicture: 'https://i.imgur.com/SN1rPjP.png' },
-      { id: 17, name: 'Igaveumyheart Butcanihaveitback ',          role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61577166245335', profilePicture: 'https://i.imgur.com/D73xGRk.png' },
-      { id: 19, name: 'Rei Stepinter',         role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61582834562946',    profilePicture: 'https://i.imgur.com/Aj48mAp.jpeg' },
-      { id: 20, name: 'Willy Wonka',            role: 'Member',         facebook: 'https://www.facebook.com/WillyX2',                          profilePicture: 'https://i.imgur.com/jROHdhk.png' },
-      { id: 21, name: 'Taemiz Xgodry',          role: 'Leader/Support',         facebook: 'https://www.facebook.com/sen.kaemi.2025',                   profilePicture: 'https://i.imgur.com/W7ezMa6.jpg' },
+      { id: 2, name: 'bAddiexゞ', role: 'Member', facebook: 'https://www.facebook.com/nenejacrazy', profilePicture: 'https://i.imgur.com/xM0kx6o.png' },
+      { id: 3, name: 'Atlas StepInter', role: 'Member', facebook: 'X', profilePicture: 'https://i.imgur.com/oUjxeea.png' },
+      { id: 4, name: 'March Colinfirth', role: 'Member', facebook: 'https://www.facebook.com/march.colinfirth', profilePicture: 'https://i.imgur.com/hR1TeUq.png' },
+      { id: 5, name: 'Blackdora StepInter', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61577381127203', profilePicture: 'https://i.imgur.com/wM2rtaH.png' },
+      { id: 11, name: 'Nönğaina ィ ۦ  ', role: 'Member', facebook: 'https://www.facebook.com/share/1GdHrfP5Zx/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/68BhK0W.png' },
+      { id: 13, name: 'Mewie Zera', role: 'Member', facebook: 'https://www.facebook.com/share/1FWe9EKFRg/', profilePicture: 'https://i.imgur.com/ZJKT7Pe.png' },
+      { id: 14, name: 'Babyz Maiyakjebjaiteerakter', role: 'Member', facebook: 'https://www.facebook.com/share/1BH3JvgeXu/?mibextid=wwXIfr', profilePicture: 'https://i.imgur.com/l6uKAEs.png' },
+      { id: 16, name: 'Pee Pee Brownlor', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61578694900512', profilePicture: 'https://i.imgur.com/SN1rPjP.png' },
+      { id: 17, name: 'Igaveumyheart Butcanihaveitback ', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61577166245335', profilePicture: 'https://i.imgur.com/D73xGRk.png' },
+      { id: 19, name: 'Rei Stepinter', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61582834562946', profilePicture: 'https://i.imgur.com/Aj48mAp.jpeg' },
+      { id: 20, name: 'Willy Wonka', role: 'Member', facebook: 'https://www.facebook.com/WillyX2', profilePicture: 'https://i.imgur.com/jROHdhk.png' },
+      { id: 21, name: 'Taemiz Xgodry', role: 'Leader/Support', facebook: 'https://www.facebook.com/sen.kaemi.2025', profilePicture: 'https://i.imgur.com/W7ezMa6.jpg' },
 
-      { id: 25, name: 'Sage StepInter',          role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61579758254233',   profilePicture: 'https://i.imgur.com/JFBsdPi.png' },
-      { id: 26, name: 'Nongmon Delta',      role: 'Member',         facebook: 'https://www.facebook.com/profile.php?id=61564171884806',   profilePicture: 'https://i.imgur.com/kQDgn1R.png' },
+      { id: 25, name: 'Sage StepInter', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61579758254233', profilePicture: 'https://i.imgur.com/JFBsdPi.png' },
+      { id: 26, name: 'Nongmon Delta', role: 'Member', facebook: 'https://www.facebook.com/profile.php?id=61564171884806', profilePicture: 'https://i.imgur.com/kQDgn1R.png' },
       // ชื่อใหม่ จากโค้ดอันแรก ไม่แก้
-      { id: 28, name: 'John Realmaflow',        role: 'Member',         facebook: 'https://www.facebook.com/john.realmaflow',                 profilePicture: 'https://i.imgur.com/fVkieD6.png' },
-      { id: 31, name: 'Sky Ny',        role: 'Member',         facebook: 'https://www.facebook.com/sky.yuya.2024',                 profilePicture: 'https://i.imgur.com/ETyeHA0.png' },
-      { id: 32, name: 'Cartoon Intovert',        role: 'Member',         facebook: 'https://www.facebook.com/cartoon.garlix',                 profilePicture: 'https://i.imgur.com/HCB5LVk.png' },
+      { id: 28, name: 'John Realmaflow', role: 'Member', facebook: 'https://www.facebook.com/john.realmaflow', profilePicture: 'https://i.imgur.com/fVkieD6.png' },
+      { id: 31, name: 'Sky Ny', role: 'Member', facebook: 'https://www.facebook.com/sky.yuya.2024', profilePicture: 'https://i.imgur.com/ETyeHA0.png' },
+      { id: 32, name: 'Cartoon Intovert', role: 'Member', facebook: 'https://www.facebook.com/cartoon.garlix', profilePicture: 'https://i.imgur.com/HCB5LVk.png' },
+      { id: 32, name: 'Awang Stepinter', role: 'Member', facebook: '', profilePicture: '' },
     ];
 
     const memberList = document.getElementById("memberList");
@@ -471,9 +491,8 @@
             <div class="member-info">
               <div class="member-name">${member.name}</div>
               <div class="member-role">${member.role}</div>
-              ${
-                member.facebook !== 'X'
-                  ? `
+              ${member.facebook !== 'X'
+              ? `
                     <a href="${member.facebook}" target="_blank" class="facebook-link">
                       <span class="facebook-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -482,8 +501,8 @@
                       </span>
                     </a>
                   `
-                  : `<span style="color:#aaa;"></span>`
-              }
+              : `<span style="color:#aaa;"></span>`
+            }
             </div>
           `;
           roleGroup.appendChild(div);
@@ -508,4 +527,5 @@
     });
   </script>
 </body>
+
 </html>
